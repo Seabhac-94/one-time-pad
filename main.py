@@ -22,11 +22,16 @@ def xor_bytes(key_stream, message):
     return bytes(key_stream[i] ^ message[i] for i in range(length))
 
 
+# done by 'opposition'
 message = "DO ATTACK"
 message = message.encode()
 key_stream = generate_key_stream(len(message))
 cipher = xor_bytes(key_stream, message)
 
-print(message)
-print(key_stream)
+# attempting to break
+# shows that cipher can be decrypted to any possible message with same number of characters
 print(cipher)
+message = "NO ATTACK"
+message = message.encode()
+guess_key_stream = xor_bytes(message, cipher)
+print(xor_bytes(guess_key_stream, cipher))
