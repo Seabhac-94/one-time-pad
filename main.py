@@ -28,8 +28,12 @@ message = message.encode()
 key_stream = generate_key_stream(len(message))
 cipher = xor_bytes(key_stream, message)
 
-# attempting to break
-# shows that cipher can be decrypted to any possible message with same number of characters
+print(message)
+print(key_stream)
+print(cipher)
+
+# attempting to 'break'
+# shows that cipher can be decrypted to any message of the same length
 print(cipher)
 message = "NO ATTACK"
 message = message.encode()
